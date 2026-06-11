@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail - PrintBrand Custom Printing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">PrintBrand</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html" class="cart-link">
+            <span class="cart-icon">🛒
+              <span class="cart-count" style="display: none;">0</span>
+            </span>
+          </a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Detail Section -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="detail-container" id="product-detail-container">
+        <!-- Product detail will be dynamically loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>About PrintBrand</h4>
+          <p>We specialize in high-quality custom printing for garments, cups, and promotional items. Perfect for brands, startups, and organizations looking to make a lasting impression.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="shop.html">T-Shirts & Apparel</a></li>
+            <li><a href="shop.html">Hoodies & Jackets</a></li>
+            <li><a href="shop.html">Hats & Caps</a></li>
+            <li><a href="shop.html">Cups & Drinkware</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>Email: info@printbrand.com</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Available: Mon-Fri 9AM-6PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 PrintBrand. All rights reserved. Custom printing for brands and startups.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function displayProductDetail() {
+      const productId = localStorage.getItem('selectedProduct');
+      const product = findProduct(productId);
+
+      if (!product) {
+        document.getElementById('product-detail-container').innerHTML = `
+          <div style="text-align: center; padding: 3rem; grid-column: 1 / -1;">
+            <h2>Product not found</h2>
+            <p style="color: #666; margin-bottom: 2rem;">The product you're looking for doesn't exist.</p>
+            <a href="shop.html" class="btn btn-primary">Back to Shop</a>
+          </div>
+        `;
+        return;
+      }
+
+      const detailHTML = `
+        <div class="detail-image">${product.image}</div>
+        <div class="detail-info">
+          <div class="detail-category">${product.category}</div>
+          <h1>${product.name}</h1>
+          <div class="detail-rating">⭐ Highly Rated by Brands & Startups</div>
+          <div class="detail-price">$${product.price.toFixed(2)}</div>
+          <div class="detail-description">${product.description}</div>
+
+          <div class="detail-options">
+            ${product.sizes ? `
+              <div class="option-group">
+                <label for="size">Select Size:</label>
+                <select id="size">
+                  <option value="">Choose a size</option>
+                  ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                </select>
+              </div>
+            ` : ''}
+
+            ${product.colors ? `
+              <div class="option-group">
+                <label for="color">Select Color:</label>
+                <select id="color">
+                  <option value="">Choose a color</option>
+                  ${product.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
+                </select>
+              </div>
+            ` : ''}
+
+            <div class="option-group">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" value="1" min="1" max="1000">
+            </div>
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn btn-primary" onclick="addToCartDetail('${product.id}')">Add to Cart</button>
+            <button class="btn btn-secondary" onclick="requestCustomQuote('${product.id}')">Request Quote</button>
+          </div>
+
+          <div class="detail-specs">
+            <h3 style="margin-bottom: 1.5rem; margin-top: 0;">Product Specifications</h3>
+            ${Object.entries(product.specs).map(([key, value]) => `
+              <div class="spec-item">
+                <div class="spec-label">${key.charAt(0).toUpperCase() + key.slice(1)}:</div>
+                <div class="spec-value">${value}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      document.getElementById('product-detail-container').innerHTML = detailHTML;
+    }
+
+    function addToCartDetail(productId) {
+      const product = findProduct(productId);
+      if (!product) return;
+
+      const size = document.getElementById('size')?.value || '';
+      const color = document.getElementById('color')?.value || '';
+      const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+      if (product.sizes && !size) {
+        alert('Please select a size');
+        return;
+      }
+
+      if (product.colors && !color) {
+        alert('Please select a color');
+        return;
+      }
+
+      const options = {};
+      if (size) options.size = size;
+      if (color) options.color = color;
+
+      cart.addItem(product, quantity, options);
+      showNotification(`${quantity} ${product.name}(s) added to cart!`);
+    }
+
+    function requestCustomQuote(productId) {
+      const product = findProduct(productId);
+      if (!product) return;
+
+      const size = document.getElementById('size')?.value || 'Any';
+      const color = document.getElementById('color')?.value || 'Any';
+      const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+      const message = `I'm interested in a custom quote for ${quantity}x ${product.name} - Size: ${size}, Color: ${color}`;
+      localStorage.setItem('quoteMessage', message);
+      window.location.href = 'contact.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', displayProductDetail);
+  </script>
+</body>
+</html>

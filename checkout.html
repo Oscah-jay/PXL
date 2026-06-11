@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - PrintBrand Custom Printing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">PrintBrand</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html" class="cart-link">
+            <span class="cart-icon">🛒
+              <span class="cart-count" style="display: none;">0</span>
+            </span>
+          </a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Checkout Section -->
+  <section class="checkout-container">
+    <div class="container">
+      <h1 style="margin-bottom: 2rem;">Checkout</h1>
+
+      <div id="checkout-content">
+        <!-- Checkout content will be dynamically loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>About PrintBrand</h4>
+          <p>We specialize in high-quality custom printing for garments, cups, and promotional items. Perfect for brands, startups, and organizations looking to make a lasting impression.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="shop.html">T-Shirts & Apparel</a></li>
+            <li><a href="shop.html">Hoodies & Jackets</a></li>
+            <li><a href="shop.html">Hats & Caps</a></li>
+            <li><a href="shop.html">Cups & Drinkware</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>Email: info@printbrand.com</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Available: Mon-Fri 9AM-6PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 PrintBrand. All rights reserved. Custom printing for brands and startups.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function renderCheckout() {
+      const checkoutContent = document.getElementById('checkout-content');
+
+      if (cart.items.length === 0) {
+        checkoutContent.innerHTML = `
+          <div style="text-align: center; padding: 3rem;">
+            <h2>Your cart is empty</h2>
+            <p style="color: #666; margin-bottom: 2rem;">Please add items before checking out</p>
+            <a href="shop.html" class="btn btn-primary">Back to Shop</a>
+          </div>
+        `;
+        return;
+      }
+
+      const subtotal = cart.getTotal();
+      const tax = subtotal * 0.08;
+      const shipping = subtotal > 100 ? 0 : 10;
+      const total = subtotal + tax + shipping;
+
+      let reviewHTML = '';
+      cart.items.forEach(item => {
+        const optionsText = Object.entries(item.options)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join(', ');
+        reviewHTML += `
+          <div class="review-item">
+            <span>${item.name} ${optionsText ? '(' + optionsText + ')' : ''} × ${item.quantity}</span>
+            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+          </div>
+        `;
+      });
+
+      const checkoutHTML = `
+        <div class="checkout-content">
+          <form class="form-section" id="checkout-form" onsubmit="submitCheckout(event)">
+            <h3>Billing Information</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Street Address *</label>
+              <input type="text" id="address" name="address" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input type="text" id="city" name="city" required>
+              </div>
+              <div class="form-group">
+                <label for="state">State/Province *</label>
+                <input type="text" id="state" name="state" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="zip">ZIP/Postal Code *</label>
+                <input type="text" id="zip" name="zip" required>
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <input type="text" id="country" name="country" value="United States">
+              </div>
+            </div>
+
+            <div class="form-section" style="margin-top: 2rem; background-color: transparent; padding: 0;">
+              <h3>Special Instructions</h3>
+              <div class="form-group">
+                <label for="notes">Design/Print Notes</label>
+                <textarea id="notes" name="notes" placeholder="Any specific design requirements or notes for our printing team..."></textarea>
+              </div>
+            </div>
+
+            <div class="checkout-buttons" style="margin-top: 2rem;">
+              <button type="submit" class="btn btn-primary">Complete Order</button>
+              <a href="cart.html" class="btn btn-secondary">Back to Cart</a>
+            </div>
+          </form>
+
+          <div class="checkout-summary">
+            <div class="order-review">
+              <h3>Order Summary</h3>
+              ${reviewHTML}
+              <div class="review-total">
+                <span>Subtotal:</span>
+                <span>$${subtotal.toFixed(2)}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-gray);">
+                <span>Tax (8%):</span>
+                <span>$${tax.toFixed(2)}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-gray);">
+                <span>Shipping:</span>
+                <span>${shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2)}</span>
+              </div>
+              <div class="review-total">
+                <span>Total Amount:</span>
+                <span>$${total.toFixed(2)}</span>
+              </div>
+            </div>
+
+            <div style="background-color: #f0f0f0; padding: 1.5rem; border-radius: 4px; margin-top: 2rem; font-size: 0.9rem;">
+              <h4 style="margin-bottom: 1rem; color: var(--primary-black);">📝 Order Processing</h4>
+              <ul style="list-style: none;">
+                <li style="margin-bottom: 0.5rem;">✓ Your order will be confirmed via email</li>
+                <li style="margin-bottom: 0.5rem;">✓ Our team will contact you about design details</li>
+                <li style="margin-bottom: 0.5rem;">✓ Typical turnaround: 3-5 business days</li>
+                <li>✓ Free shipping on orders over $100</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+
+      checkoutContent.innerHTML = checkoutHTML;
+    }
+
+    function submitCheckout(event) {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+
+      // Prepare order summary
+      let orderSummary = 'NEW ORDER FROM PRINTBRAND\n\n';
+      orderSummary += '=== CUSTOMER INFORMATION ===\n';
+      orderSummary += `Name: ${data.firstName} ${data.lastName}\n`;
+      orderSummary += `Email: ${data.email}\n`;
+      orderSummary += `Phone: ${data.phone}\n`;
+      orderSummary += `Address: ${data.address}\n${data.city}, ${data.state} ${data.zip}\n${data.country}\n\n`;
+
+      orderSummary += '=== ORDERED ITEMS ===\n';
+      cart.items.forEach(item => {
+        const optionsText = Object.entries(item.options)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join(', ');
+        orderSummary += `• ${item.name} (${optionsText || 'No options'}) × ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}\n`;
+      });
+
+      const subtotal = cart.getTotal();
+      const tax = subtotal * 0.08;
+      const shipping = subtotal > 100 ? 0 : 10;
+      const total = subtotal + tax + shipping;
+
+      orderSummary += `\nSubtotal: $${subtotal.toFixed(2)}\n`;
+      orderSummary += `Tax: $${tax.toFixed(2)}\n`;
+      orderSummary += `Shipping: ${shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2)}\n`;
+      orderSummary += `TOTAL: $${total.toFixed(2)}\n\n`;
+
+      if (data.notes) {
+        orderSummary += `=== SPECIAL INSTRUCTIONS ===\n${data.notes}\n`;
+      }
+
+      // Create mailto link with order details
+      const subject = encodeURIComponent('PrintBrand Order Submission');
+      const body = encodeURIComponent(orderSummary);
+      const mailtoLink = `mailto:info@printbrand.com?subject=${subject}&body=${body}`;
+
+      // Store order in localStorage for confirmation
+      localStorage.setItem('lastOrder', JSON.stringify({
+        customer: data,
+        items: cart.items,
+        total: total
+      }));
+
+      // Clear cart
+      cart.clear();
+
+      // Redirect to mailto
+      window.location.href = mailtoLink;
+
+      // Show success message
+      setTimeout(() => {
+        showNotification('Order submitted! Check your email client.');
+      }, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCheckout);
+  </script>
+</body>
+</html>
