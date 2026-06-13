@@ -9,7 +9,7 @@ const products = {
       id: 'shirt-001',
       name: 'Premium Cotton T-Shirt',
       category: 'Shirts',
-      price: 12.99,
+      price: 1200,
       image: '👕',
       description: 'High-quality 100% cotton t-shirt perfect for custom branding',
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -25,7 +25,7 @@ const products = {
       id: 'shirt-002',
       name: 'Polo Shirt',
       category: 'Shirts',
-      price: 18.99,
+      price: 1800,
       image: '👔',
       description: 'Classic polo shirt for professional branding',
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -41,7 +41,7 @@ const products = {
       id: 'shirt-003',
       name: 'Performance Dry-Fit Shirt',
       category: 'Shirts',
-      price: 16.99,
+      price: 1600,
       image: '🏃',
       description: 'Moisture-wicking fabric for active wear',
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -59,7 +59,7 @@ const products = {
       id: 'hoodie-001',
       name: 'Classic Pullover Hoodie',
       category: 'Hoodies',
-      price: 29.99,
+      price: 2900,
       image: '🧥',
       description: 'Comfortable pullover hoodie with kangaroo pocket',
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -75,7 +75,7 @@ const products = {
       id: 'hoodie-002',
       name: 'Zip-Up Hoodie',
       category: 'Hoodies',
-      price: 34.99,
+      price: 3400,
       image: '🧥',
       description: 'Full zip hoodie with multiple pockets',
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -93,7 +93,7 @@ const products = {
       id: 'hat-001',
       name: 'Baseball Cap',
       category: 'Hats',
-      price: 9.99,
+      price: 999,
       image: '🧢',
       description: 'Classic baseball cap for everyday wear',
       sizes: ['One Size', 'Adjustable'],
@@ -109,7 +109,7 @@ const products = {
       id: 'hat-002',
       name: 'Beanie',
       category: 'Hats',
-      price: 12.99,
+      price: 1200,
       image: '🎿',
       description: 'Warm knit beanie perfect for winter campaigns',
       sizes: ['One Size'],
@@ -127,7 +127,7 @@ const products = {
       id: 'cup-001',
       name: 'Ceramic Mug',
       category: 'Cups & Drinkware',
-      price: 7.99,
+      price: 799,
       image: '☕',
       description: 'Classic white ceramic mug with glossy finish',
       sizes: ['11oz', '15oz'],
@@ -143,7 +143,7 @@ const products = {
       id: 'cup-002',
       name: 'Travel Tumbler',
       category: 'Cups & Drinkware',
-      price: 14.99,
+      price: 1499,
       image: '🥤',
       description: 'Insulated tumbler with lid',
       sizes: ['16oz', '20oz'],
@@ -161,7 +161,7 @@ const products = {
       id: 'mug-001',
       name: 'Standard Coffee Mug',
       category: 'Mugs',
-      price: 6.99,
+      price: 699,
       image: '☕',
       description: 'Durable white ceramic mug',
       sizes: ['11oz'],
@@ -177,7 +177,7 @@ const products = {
       id: 'mug-002',
       name: 'Color Changing Mug',
       category: 'Mugs',
-      price: 11.99,
+      price: 1100,
       image: '☕',
       description: 'Reveals design when filled with hot liquid',
       sizes: ['11oz'],
@@ -195,7 +195,7 @@ const products = {
       id: 'bottle-001',
       name: 'Stainless Steel Water Bottle',
       category: 'Water Bottles',
-      price: 18.99,
+      price: 1800,
       image: '💧',
       description: 'Keeps drinks cold for 24 hours',
       sizes: ['18oz', '24oz', '32oz'],
@@ -211,7 +211,7 @@ const products = {
       id: 'bottle-002',
       name: 'Bamboo Water Bottle',
       category: 'Water Bottles',
-      price: 22.99,
+      price: 2200,
       image: '💧',
       description: 'Eco-friendly bamboo and stainless steel',
       sizes: ['16oz', '25oz'],
@@ -569,3 +569,42 @@ if (document.readyState === 'loading') {
     setupCarouselHoverPause();
   }
 }
+
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('mobile-menu-toggle');
+  
+  if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+    mobileMenu.style.display = 'block';
+    hamburger.classList.add('active');
+  } else {
+    mobileMenu.style.display = 'none';
+    hamburger.classList.remove('active');
+  }
+}
+
+// Mobile Search Toggle
+function toggleSearch() {
+  const mobileSearch = document.getElementById('mobile-search');
+  
+  if (mobileSearch.style.display === 'none' || mobileSearch.style.display === '') {
+    mobileSearch.style.display = 'flex';
+    mobileSearch.querySelector('input').focus();
+  } else {
+    mobileSearch.style.display = 'none';
+  }
+}
+
+// Close mobile menu when a link is clicked
+document.addEventListener('click', function(event) {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('mobile-menu-toggle');
+  
+  if (mobileMenu && mobileMenu.style.display === 'block') {
+    if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      mobileMenu.style.display = 'none';
+      hamburger.classList.remove('active');
+    }
+  }
+});
