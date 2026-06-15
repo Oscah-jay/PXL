@@ -5,30 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Detail - PrintBrand Custom Printing</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <!-- Header & Navigation -->
   <header>
-    <div class="container">
-      <nav>
-        <div class="logo">PrintBrand</div>
+    <div class="header-top">
+      <div class="container">
+        <div class="logo">
+          <span class="logo-text">PXL-Prints</span>
+          <span class="logo-tagline">Design • Print | Branding</span>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Type your keyword here, I will find it for you!">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-right">
+          <div class="support-info">
+            <p class="support-label">For Support: Call us at</p>
+            <p class="support-phone">+254-720-750-548</p>
+          </div>
+          <a href="cart.html" class="cart-link">
+            <span class="icon-btn cart-icon"><i class="fas fa-shopping-cart"></i></span>
+            <span class="cart-count" style="display: none;">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile/Tablet Header -->
+    <div class="header-mobile">
+      <div class="mobile-header-content">
+        <!-- Hamburger Menu -->
+        <button class="hamburger" id="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span><i class="fas fa-bars"></i></span>
+        </button>
+
+        <!-- Logo -->
+        <div class="mobile-logo">
+          <span class="logo-text">PXL-Prints</span>
+          <span class="logo-tagline">Design • Print | Branding</span>
+        </div>
+
+        <!-- Right Icons -->
+        <div class="mobile-icons">
+          <a href="#account" class="icon-btn account-icon"><i class="fas fa-user"></i></a>
+          <a href="cart.html" class="icon-btn cart-icon">
+            <span><i class="fas fa-shopping-cart"></i></span>
+            <span class="cart-count" style="display: none;">0</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Search Bar (hidden by default) -->
+      <div class="mobile-search" id="mobile-search" style="display: none;">
+        <input type="text" placeholder="Search...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="container">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html" class="cart-link">
-            <span class="cart-icon">🛒
-              <span class="cart-count" style="display: none;">0</span>
-            </span>
-          </a></li>
+          <li><a href="contact.html">About</a></li>
         </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+     <!-- Mobile Menu (hidden by default) -->
+    <nav class="mobile-menu" id="mobile-menu" style="display: none;">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">About</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Product Detail Section -->
@@ -42,39 +96,127 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>About PrintBrand</h4>
-          <p>We specialize in high-quality custom printing for garments, cups, and promotional items. Perfect for brands, startups, and organizations looking to make a lasting impression.</p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="cart.html">Cart</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Products</h4>
-          <ul>
-            <li><a href="shop.html">T-Shirts & Apparel</a></li>
-            <li><a href="shop.html">Hoodies & Jackets</a></li>
-            <li><a href="shop.html">Hats & Caps</a></li>
-            <li><a href="shop.html">Cups & Drinkware</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contact Info</h4>
-          <p>Email: info@printbrand.com</p>
-          <p>Phone: (555) 123-4567</p>
-          <p>Available: Mon-Fri 9AM-6PM</p>
+    <!-- Trust Badges Section -->
+    <div class="trust-badges">
+      <div class="container">
+        <div class="badges-grid">
+          <div class="badge-item">
+            <div class="badge-icon">🔒</div>
+            <h3>All secure payment methods</h3>
+            <div class="payment-methods">
+              <span>MPESA</span>
+              <span>VISA</span>
+              <span>MASTERCARD</span>
+              <span>AIRTEL MONEY</span>
+            </div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon">😊</div>
+            <h3>Satisfaction guaranteed</h3>
+            <p>Easy return within 30 days, no question asked!</p>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon">🚚</div>
+            <h3>Countrywide Delivery</h3>
+            <p>Fast and reliable delivery across Kenya.</p>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 PrintBrand. All rights reserved. Custom printing for brands and startups.</p>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- My Account Section -->
+          <div class="footer-section">
+            <h4>MY ACCOUNT</h4>
+            <ul>
+              <li><a href="#about">About us</a></li>
+              <li><a href="contact.html">Contact us</a></li>
+              <li><a href="#account">My Account</a></li>
+              <li><a href="#returns">Return & Exchange Policy</a></li>
+              <li><a href="#worldwide">We Ship Countrywide</a></li>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="#sizing">Finding Your Perfect Garment Size</a></li>
+              <li><a href="#affiliate">Affiliate Program</a></li>
+              <li><a href="#selling">Selling What Sells</a></li>
+            </ul>
+          </div>
+
+          <!-- Services Section -->
+          <div class="footer-section">
+            <h4>APPAREL FACTORY</h4>
+            <ul>
+              <li><a href="#schedule">Holidays Schedule</a></li>
+              <li><a href="#package">Lost Package</a></li>
+              <li><a href="#coupon">Coupon & Specials</a></li>
+              <li><a href="#payment">Payment Information</a></li>
+              <li><a href="#tips">Apparel Buying Tips</a></li>
+            </ul>
+            <h4 style="margin-top: 1.5rem;">SERVICES</h4>
+            <ul>
+              <li><a href="#embroidery">Embroidery Service</a></li>
+              <li><a href="#heat">Heat Transfer Service</a></li>
+              <li><a href="#screen">Screen Printing Service</a></li>
+              <li><a href="#applique">Applique Service</a></li>
+              <li><a href="#laser">Laser Etching Service</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="footer-section">
+            <h4>CONTACT INFORMATION</h4>
+            <p class="company-name">PXL-Prints</p>
+            <p>>Cf3 Kalimoni, Juja</p>
+            <p style="margin-top: 1.5rem;"><strong>PHONE:</strong><br>+254-720-750-548</p>
+            <p style="margin-top: 1rem;"><strong>EMAIL:</strong><br>support@pxlprints.com</p>
+            <p style="margin-top: 1rem;"><strong>WORKING DAYS/HOURS:</strong><br>Mon - Fri / 9:00 AM - 6:00 PM</p>
+          </div>
+
+          <!-- Newsletter Section -->
+          <div class="footer-section">
+            <h4>BE THE FIRST TO KNOW</h4>
+            <p>Get all the latest information on Events, Sales and Offers.<br>Sign up for newsletter today.</p>
+            <form class="newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-btn">→</button>
+            </form>
+            
+            <h4 style="margin-top: 1.5rem;">FIND US ON</h4>
+            <div class="social-links">
+              <a href="#linkedin" title="LinkedIn">in</a>
+              <a href="#facebook" title="Facebook">f</a>
+              <a href="#twitter" title="Twitter">𝕏</a>
+              <a href="#pinterest" title="Pinterest">P</a>
+              <a href="#youtube" title="YouTube">▶</a>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">WE ACCEPT</h4>
+            <div class="payment-logos">
+              <span class="payment-badge">Mpesa</span>
+              <span class="payment-badge">Airtel Money</span>
+              <span class="payment-badge">Mastercard</span>
+              <span class="payment-badge">Visa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; Copyright 2026 PXL-Prints.com - All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="#privacy">Privacy Notice</a>
+          <span>|</span>
+          <a href="#terms">Condition of Use</a>
+          <span>|</span>
+          <a href="#returns">Returns Exchange</a>
+          <span>|</span>
+          <a href="#cookies">Cookies Notice</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -102,7 +244,7 @@
           <div class="detail-category">${product.category}</div>
           <h1>${product.name}</h1>
           <div class="detail-rating">⭐ Highly Rated by Brands & Startups</div>
-          <div class="detail-price">$${product.price.toFixed(2)}</div>
+          <div class="detail-price">Ksh${product.price.toFixed(2)}</div>
           <div class="detail-description">${product.description}</div>
 
           <div class="detail-options">
