@@ -12,7 +12,6 @@
   --line: #e7e4da;
   --radius: 28px;
   --shadow: 0 18px 40px -18px rgba(22, 58, 55, 0.35);
-  --maxw: 1080px;
 
   --primary-black: #163a37;
   --primary-white: #ffffff;
@@ -79,6 +78,7 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
+  padding: 0 2rem;
 }
 
 .logo {
@@ -212,6 +212,7 @@ header {
 
 .mobile-nav-links li {
   border-bottom: 1px solid var(--border-gray);
+  
 }
 
 .mobile-nav-links a {
@@ -349,6 +350,7 @@ header {
   list-style: none;
   gap: 2.5rem;
   align-items: center;
+  padding: 0 2rem;
 }
 
 .nav-links a {
@@ -376,100 +378,6 @@ header {
   background-color: var(--primary-white);
   border-radius: 2px;
   transition: all 0.3s ease;
-}
-
-
-/* ---------- Header / hero ---------- */
-.hero {
-  position: relative;
-  background: var(--teal);
-  color: #fff;
-  border-radius: 0 0 36px 36px;
-  padding-bottom: 3.5rem;
-  overflow: hidden;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.07) 1px, transparent 0);
-  background-size: 26px 26px;
-  pointer-events: none;
-}
-
-.nav {
-  position: relative;
-  z-index: 3;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 1.5rem;
-}
-.brand {
-  font-family: "Fraunces", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-}
-.brand span { color: var(--gold-soft); }
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1.75rem;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: #fff; }
-.nav-cta {
-  background: var(--gold);
-  color: var(--teal-deep) !important;
-  padding: 0.55rem 1.1rem;
-  border-radius: 999px;
-  font-weight: 700;
-}
-.nav-cta:hover { background: var(--gold-soft); }
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  padding: 6px;
-}
-.nav-toggle span {
-  width: 24px; height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.hero-badge {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  margin-top: 1rem;
-}
-.hero-badge span {
-  display: inline-block;
-  font-family: "Fraunces", serif;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 600;
-  padding: 0.4rem 2.2rem;
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
 }
 
 /* ---------- Intro ---------- */
@@ -1173,7 +1081,7 @@ footer {
   .info-item span:last-child {
     font-size: 0.75rem;
   }
-  
+
   .trust-badges {
     padding: 1.5rem 1rem;
   }
