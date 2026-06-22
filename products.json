@@ -1,0 +1,222 @@
+{
+    "shirts": [
+    {
+      "id": "shirt-001",
+      "name": "Premium Cotton T-Shirt",
+      "category": "Shirts",
+      "price": 1200,
+      "image": "Assets/shirts.jpg",
+      "description": "High-quality 100% cotton t-shirt perfect for custom branding",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colors": ["Black", "White", "Navy", "Gray", "Red"],
+      "specs": {
+        "material": "100% Cotton",
+        "weight": "180gsm",
+        "care": "Machine wash cold, lay flat to dry",
+        "warranty": "Quality guaranteed for 2 years"
+      }
+    },
+    {
+      "id": "shirt-002",
+      "name": "Polo Shirt",
+      "category": "Shirts",
+      "price": 1800,
+      "image": "/Assets/polo.jpg",
+      "description": "Classic polo shirt for professional branding",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colors": ["Black", "White", "Navy", "Red", "Green"],
+      "specs": {
+        "material": "65% Polyester, 35% Cotton",
+        "weight": "200gsm",
+        "care": "Machine wash warm, tumble dry medium",
+        "warranty": "Quality guaranteed for 2 years"
+      }
+    },
+    {
+      "id": "shirt-003",
+      "name": "Performance Dry-Fit Shirt",
+      "category": "Shirts",
+      "price": 1600,
+      "image": "Assets/sports.jpg",
+      "description": "Moisture-wicking fabric for active wear",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colors": ["Black", "Navy", "White", "Gray"],
+      "specs": {
+        "material": "100% Polyester",
+        "weight": "150gsm",
+        "care": "Machine wash cold, tumble dry low",
+        "warranty": "Quality guaranteed for 1 year"
+      }
+    }
+  ],
+  "hoodies": [
+    {
+      "id": "hoodie-001",
+      "name": "Classic Pullover Hoodie",
+      "category": "Hoodies",
+      "price": 2900,
+      "image": "Assets/Bhoodie.jpg",
+      "description": "Comfortable pullover hoodie with kangaroo pocket",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colors": ["Black", "Navy", "Gray", "White", "Charcoal"],
+      "specs": {
+        "material": "80% Cotton, 20% Polyester",
+        "weight": "280gsm",
+        "care": "Machine wash cold, hang to dry",
+        "warranty": "Quality guaranteed for 2 years"
+      }
+    },
+    {
+      "id": "hoodie-002",
+      "name": "Zip-Up Hoodie",
+      "category": "Hoodies",
+      "price": 3400,
+      "image": "Assets/Bhoodie.jpg",
+      "description": "Full zip hoodie with multiple pockets",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colors": ["Black", "Navy", "Gray", "Red"],
+      "specs": {
+        "material": "80% Cotton, 20% Polyester",
+        "weight": "300gsm",
+        "care": "Machine wash cold, hang to dry",
+        "warranty": "Quality guaranteed for 2 years"
+      }
+    }
+  ],
+  "hats": [
+    {
+      "id": "hat-001",
+      "name": "Baseball Cap",
+      "category": "Hats",
+      "price": 999,
+      "image": "Assets/Bcap.jpg",
+      "description": "Classic baseball cap for everyday wear",
+      "sizes": ["One Size", "Adjustable"],
+      "colors": ["Black", "White", "Navy", "Red", "Green", "Khaki"],
+      "specs": {
+        "material": "100% Cotton",
+        "closure": "Adjustable buckle back",
+        "visor": "3D embroidered",
+        "warranty": "Quality guaranteed for 1 year"
+      }
+    },
+    {
+      "id": "hat-002",
+      "name": "Beanie",
+      "category": "Hats",
+      "price": 1200,
+      "image": "Assets/caps.jpg",
+      "description": "Warm knit beanie perfect for winter campaigns",
+      "sizes": ["One Size"],
+      "colors": ["Black", "Navy", "Gray", "White", "Burgundy"],
+      "specs": {
+        "material": "100% Acrylic",
+        "weight": "150gsm",
+        "care": "Hand wash, lay flat to dry",
+        "warranty": "Quality guaranteed for 1 year"
+      }
+    }
+  ],
+  "cups": [
+    {
+      "id": "cup-001",
+      "name": "Ceramic Mug",
+      "category": "Cups & Drinkware",
+      "price": 799,
+      "image": "Assets/Bmug.jpg",
+      "description": "Classic white ceramic mug with glossy finish",
+      "sizes": ["11oz", "15oz"],
+      "colors": ["White"],
+      "specs": {
+        "material": "Ceramic",
+        "capacity": "11oz or 15oz",
+        "print": "Full wrap around",
+        "care": "Dishwasher safe, microwave safe"
+      }
+    },
+    {
+      "id": "cup-002",
+      "name": "Travel Tumbler",
+      "category": "Cups & Drinkware",
+      "price": 1499,
+      "image": "Assets/Btumbler.jpg",
+      "description": "Insulated tumbler with lid",
+      "sizes": ["16oz", "20oz"],
+      "colors": ["Black", "White", "Stainless Steel"],
+      "specs": {
+        "material": "Double Wall Stainless Steel",
+        "capacity": "16oz or 20oz",
+        "print": "Full color printing",
+        "care": "Hand wash, do not microwave"
+      }
+    }
+  ],
+  "mugs": [
+    {
+      "id": "mug-001",
+      "name": "Standard Coffee Mug",
+      "category": "Mugs",
+      "price": 699,
+      "image": "Assets/Bmug.jpg",
+      "description": "Durable white ceramic mug",
+      "sizes": ["11oz"],
+      "colors": ["White"],
+      "specs": {
+        "material": "Ceramic",
+        "capacity": "11oz",
+        "print": "Custom design area",
+        "care": "Dishwasher safe"
+      }
+    },
+    {
+      "id": "mug-002",
+      "name": "Color Changing Mug",
+      "category": "Mugs",
+      "price": 1100,
+      "image": "Assets/Bmug.jpg",
+      "description": "Reveals design when filled with hot liquid",
+      "sizes": ["11oz"],
+      "colors": ["White"],
+      "specs": {
+        "material": "Ceramic with heat-reactive coating",
+        "capacity": "11oz",
+        "print": "Thermochromic design",
+        "care": "Dishwasher safe"
+      }
+    }
+  ],
+  "bottles": [
+    {
+      "id": "bottle-001",
+      "name": "Stainless Steel Water Bottle",
+      "category": "Water Bottles",
+      "price": 1800,
+      "image": "Assets/Bwaterbottle.jpg",
+      "description": "Keeps drinks cold for 24 hours",
+      "sizes": ["18oz", "24oz", "32oz"],
+      "colors": ["White", "Black", "Teal", "Rose Gold"],
+      "specs": {
+        "material": "Double Wall Stainless Steel",
+        "capacity": "18oz, 24oz, or 32oz",
+        "print": "Powder coat finish",
+        "care": "Hand wash recommended"
+      }
+    },
+    {
+      "id": "bottle-002",
+      "name": "Bamboo Water Bottle",
+      "category": "Water Bottles",
+      "price": 2200,
+      "image": "Assets/Bwaterbottle.jpg",
+      "description": "Eco-friendly bamboo and stainless steel",
+      "sizes": ["16oz", "25oz"],
+      "colors": ["Natural", "Black"],
+      "specs": {
+        "material": "Bamboo & Stainless Steel",
+        "capacity": "16oz or 25oz",
+        "print": "Eco-friendly UV print",
+        "care": "Hand wash only"
+      }
+    }
+  ]
+}
