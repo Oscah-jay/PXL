@@ -226,7 +226,12 @@
 
   <script src="app.js"></script>
   <script>
-    function displayProductDetail() {
+    async function displayProductDetail() {
+
+      if (Object.keys(products).length === 0) {
+    await loadProducts();
+  }
+
       const productId = localStorage.getItem('selectedProduct');
       const product = findProduct(productId);
 
@@ -242,7 +247,9 @@
       }
 
       const detailHTML = `
-        <div class="detail-image">${product.image}</div>
+        <div class="detail-image">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
         <div class="detail-info">
           <div class="detail-category">${product.category}</div>
           <h1>${product.name}</h1>
