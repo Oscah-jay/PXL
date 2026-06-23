@@ -112,15 +112,15 @@
         <label for="price-filter" style="font-weight: 600; margin-right: 1rem;">Filter by Price:</label>
         <select id="price-filter" onchange="filterByPrice(this.value)" style="padding: 0.5rem; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 1rem;">
           <option value="">All Prices</option>
-          <option value="0-10">Under $10</option>
-          <option value="10-20">$10 - $20</option>
-          <option value="20-30">$20 - $30</option>
-          <option value="30+">$30+</option>
+          <option value="0-1000">Under Ksh1000</option>
+          <option value="1000-2000">Ksh1000 - Ksh2000</option>
+          <option value="2000-3000">Ksh2000 - Ksh3000</option>
+          <option value="3000+">Ksh3000+</option>
         </select>
       </div>
 
       <!-- Products Grid -->
-      <div class="products-grid" id="shop-products"></div>
+      <div class="products-grid" id="featured-products"></div>
     </div>
   </section>
 
@@ -273,21 +273,21 @@
     function filterByPrice(range) {
       let filtered = currentProducts;
 
-      if (range === '0-10') {
-        filtered = currentProducts.filter(p => p.price < 10);
-      } else if (range === '10-20') {
-        filtered = currentProducts.filter(p => p.price >= 10 && p.price < 20);
-      } else if (range === '20-30') {
-        filtered = currentProducts.filter(p => p.price >= 20 && p.price < 30);
-      } else if (range === '30+') {
-        filtered = currentProducts.filter(p => p.price >= 30);
+      if (range === '0-1000') {
+        filtered = currentProducts.filter(p => p.price < 1000);
+      } else if (range === '1000-2000') {
+        filtered = currentProducts.filter(p => p.price >= 1000 && p.price < 2000);
+      } else if (range === '2000-3000') {
+        filtered = currentProducts.filter(p => p.price >= 2000 && p.price < 3000);
+      } else if (range === '3000+') {
+        filtered = currentProducts.filter(p => p.price >= 3000);
       }
 
-      renderProducts(filtered, 'shop-products');
+      renderProducts(filtered, 'featured-products');
     }
 
     function renderShopProducts() {
-      renderProducts(currentProducts, 'shop-products');
+      renderProducts(currentProducts, 'featured-products');
     }
 
     document.addEventListener('DOMContentLoaded', function() {
