@@ -6,7 +6,7 @@ async function loadProducts() {
         products = await response.json();
 
         // Render products after loading
-        renderProducts(getAllProducts(), 'products-grid');
+        renderProducts(getAllProducts(), 'featured-products');
     } catch (error) {
         console.error('Failed to load products:', error);
     }
