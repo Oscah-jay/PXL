@@ -343,6 +343,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 40px;
 }
 
 .nav-links {
@@ -363,6 +364,23 @@ header {
 
 .nav-links a:hover {
   color: var(--accent-gold);
+}
+
+.nav-links a.active {
+    position: relative;
+    color: #000;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 3px;
+    background: #FFD700;
+    border-radius: 10px;
 }
 
 .hamburger {
