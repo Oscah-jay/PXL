@@ -398,8 +398,8 @@ header {
 }
 .intro-figure img {
   width: 100%;
-  aspect-ratio: 16 / 8.5;
   object-fit: contain;
+  aspect-ratio: 36 / 12;
 }
 
 /* ---------- Story / timeline ---------- */
