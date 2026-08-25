@@ -414,6 +414,7 @@ header {
   position: relative;
   cursor: pointer;
   font-size: 1.5rem;
+  margin-top: 5px;
 }
 
 .cart-count {
@@ -2982,6 +2983,14 @@ footer {
   .product-card {
     padding: 0.1rem;
   }
+
+  .cart-count {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.3rem;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3021,6 +3030,14 @@ footer {
 
   .icon-btn {
     font-size: 1.2rem;
+  }
+
+  .cart-count {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.4rem;
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 30px;
   }
 
   .hamburger {

@@ -147,8 +147,7 @@ function createProductCard(product) {
       <div class="product-description">${product.description}</div>
       <div class="product-price">Ksh${product.price.toFixed(2)}</div>
       <div class="product-actions">
-        <button class="btn btn-primary btn-small" onclick="viewProduct('${product.id}')">View</button>
-        <button class="btn btn-secondary btn-small" onclick="quickAdd('${product.id}')">Add to Cart</button>
+        <button class="btn btn-primary btn-small" onclick="viewProduct('${product.id}')">Get It Now</button>
       </div>
     </div>
   `;
